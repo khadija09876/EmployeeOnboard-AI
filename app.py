@@ -1,4 +1,3 @@
-```python
 import os
 import re
 import hashlib
@@ -994,4 +993,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-```
