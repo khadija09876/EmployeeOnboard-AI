@@ -1,0 +1,8 @@
+```text
+streamlit
+groq
+pymupdf
+sentence-transformers
+faiss-cpu
+numpy
+```
