@@ -32,123 +32,217 @@ st.markdown(
     """
     <style>
 
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    :root {
+        --bg: #0a0e17;
+        --surface: #141b2a;
+        --surface-raised: #182236;
+        --border: #243040;
+        --text-primary: #eef1f7;
+        --text-muted: #8d97ac;
+        --accent-teal: #2dd4bf;
+        --accent-indigo: #6366f1;
+        --accent-gradient: linear-gradient(120deg, #2dd4bf 0%, #6366f1 100%);
+    }
+
     .stApp {
-        background: #0b0f14;
-        color: #f4f7fb;
+        background: var(--bg);
+        color: var(--text-primary);
     }
 
     section[data-testid="stSidebar"] {
-        background: #11161d;
-        border-right: 1px solid #27313d;
+        background: #0d1220;
+        border-right: 1px solid var(--border);
     }
 
     .brand-title {
-        font-size: 30px;
+        font-size: 26px;
         font-weight: 800;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.3px;
         margin-bottom: 0px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .brand-subtitle {
-        color: #8f9baa;
-        font-size: 14px;
-        margin-top: 2px;
-        margin-bottom: 25px;
+        color: var(--text-muted);
+        font-size: 13px;
+        margin-top: 4px;
+        margin-bottom: 26px;
+        line-height: 1.5;
     }
 
     .hero {
-        padding: 28px 30px;
-        border: 1px solid #27313d;
-        border-radius: 18px;
-        background: linear-gradient(
-            135deg,
-            #121820 0%,
-            #0d1218 100%
-        );
-        margin-bottom: 25px;
+        position: relative;
+        padding: 40px 36px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 15% 25%, rgba(45, 212, 191, 0.14), transparent 55%),
+            radial-gradient(circle at 85% 75%, rgba(99, 102, 241, 0.16), transparent 55%),
+            var(--surface);
+        margin-bottom: 28px;
+        overflow: hidden;
     }
 
     .hero h1 {
-        font-size: 38px;
-        margin-bottom: 8px;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.6px;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+    }
+
+    .hero h1 .accent {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .hero p {
-        color: #9aa6b2;
-        font-size: 16px;
+        color: var(--text-muted);
+        font-size: 15.5px;
+        line-height: 1.6;
         margin-bottom: 0px;
+        max-width: 640px;
     }
 
     .status-card {
-        background: #121820;
-        border: 1px solid #27313d;
-        border-radius: 14px;
-        padding: 16px;
-        margin-bottom: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-left: 3px solid transparent;
+        border-image: var(--accent-gradient) 1;
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
     }
 
     .status-title {
-        font-size: 12px;
-        color: #8f9baa;
-        text-transform: uppercase;
-        letter-spacing: 0.7px;
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.3px;
     }
 
     .status-value {
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 700;
         margin-top: 4px;
+        color: var(--text-primary);
     }
 
     .answer-card {
-        background: #111820;
-        border: 1px solid #293541;
+        background: var(--surface);
+        border: 1px solid var(--border);
         border-radius: 16px;
-        padding: 24px;
-        margin-top: 20px;
+        padding: 26px 28px;
+        margin-top: 22px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
     }
 
     .answer-title {
-        font-size: 18px;
-        font-weight: 800;
-        margin-bottom: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .answer-title::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        display: inline-block;
     }
 
     .source-card {
-        background: #0e141b;
-        border: 1px solid #27313d;
+        background: var(--surface-raised);
+        border: 1px solid var(--border);
         border-radius: 10px;
-        padding: 12px 15px;
+        padding: 13px 16px;
         margin-top: 8px;
+        transition: border-color 0.15s ease;
+    }
+
+    .source-card:hover {
+        border-color: var(--accent-indigo);
     }
 
     .source-name {
-        font-weight: 700;
+        font-weight: 600;
         font-size: 14px;
+        color: var(--text-primary);
     }
 
     .source-meta {
-        color: #8f9baa;
+        color: var(--text-muted);
         font-size: 12px;
-        margin-top: 3px;
+        margin-top: 4px;
     }
 
     .domain-badge {
         display: inline-block;
-        padding: 5px 10px;
+        padding: 5px 12px;
         border-radius: 20px;
-        background: #19222c;
-        border: 1px solid #303d49;
-        color: #c8d1da;
+        background: var(--surface-raised);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
         font-size: 12px;
-        margin: 3px;
+        font-weight: 500;
+        margin: 3px 4px 3px 0;
     }
 
     .footer {
         text-align: center;
-        color: #66727e;
+        color: #57617a;
         font-size: 12px;
-        padding: 30px 0 10px 0;
+        padding: 34px 0 12px 0;
+        border-top: 1px solid var(--border);
+        margin-top: 20px;
+    }
+
+    div[data-testid="stMetric"] {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 16px;
+    }
+
+    div[data-testid="stMetricLabel"] {
+        color: var(--text-muted);
+    }
+
+    .stButton > button {
+        background: var(--accent-gradient);
+        color: #06121a;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 0;
+        transition: filter 0.15s ease;
+    }
+
+    .stButton > button:hover {
+        filter: brightness(1.08);
+        color: #06121a;
+    }
+
+    .stTextArea textarea {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--text-primary);
     }
 
     </style>
@@ -755,7 +849,7 @@ Prepare a concise, professional and grounded answer.
 st.markdown(
     """
     <div class="hero">
-        <h1>👥 EmployeeOnboard AI</h1>
+        <h1>👥 Employee<span class="accent">Onboard</span> AI</h1>
         <p>
             Multi-RAG employee knowledge assistant for
             onboarding, workplace policies, IT setup,
